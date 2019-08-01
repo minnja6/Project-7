@@ -11,6 +11,10 @@ class PhotoContainer extends React.Component {
                 <h2>Results</h2>
                 <ul>
                     <Photo />
+                    <Photo />
+                    <Photo />
+                    <Photo />
+                    <Photo />
                     <NotFound />
 
                 </ul>
