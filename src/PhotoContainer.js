@@ -1,25 +1,18 @@
 import React from 'react';
 import NotFound from './NotFound';
 import Photo from './Photo';
-class PhotoContainer extends React.Component {
-    state = {
-        Photo: 0
-    };
-    render() {
+
+const PhotoContainer = props => {
+const results = props.data;
+let photos = results.map(photo =>
+    <Photo url={photo.images.fixed_height.url} />
+    );
         return (
             <div className="photo-container">
-                <h2>Results</h2>
                 <ul>
-                    <Photo />
-                    {/* <Photo />
-                    <Photo />
-                    <Photo />
-                    <Photo /> */}
-                    <NotFound />
-
+                    {Photo}
                 </ul>
             </div>
-        )
-    };
-}
+        );
+    }
 export default PhotoContainer;
