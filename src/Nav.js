@@ -3,9 +3,9 @@ const Nav = (props) => {
     return (
         <nav className="main-nav">
             <ul>
-                <li><a href='#'>Cats</a></li>
-                <li><a href='#'>Dogs</a></li>
-                <li><a href='#'>Computers</a></li>
+                <li><a href='/dance'>Dance</a></li>
+                <li><a href='/dogs'>Dogs</a></li>
+                <li><a href='/waterfalls'>Waterfalls</a></li>
             </ul>
         </nav>
 

@@ -1,13 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import PhotoContainer from './PhotoContainer';
 import Nav from './Nav';
 import Search from './Search';
-const ApiKey = a992ee7166c6f76e0371547b464ce976;
+import { createConfigItem } from '@babel/core';
+import './config.js';
+import {
+  BrowserRouter,
+  Route
+} from 'react-router-dom';
 
-function App() {
-  return (
+const App = () => ( 
+    <BrowserRouter>
     <div className="container">
 
      <Search/>
@@ -15,10 +19,11 @@ function App() {
       <Nav />
 
       <PhotoContainer />
-
+      {/* <Route path="/" component={} /> */}
     </div>
+    </BrowserRouter>
   );
-}
+
 
 
 export default App;
