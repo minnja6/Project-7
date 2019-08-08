@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-// import {
-//     Switch
-// } from 'react-router-dom';
-const Nav = (props) => {
-    return (
-        <nav className="main-nav">
-            <ul>
-                {/* <Switch> */}
-                    <li><NavLink to='/dance'>Dance</NavLink></li>
-                    <li><NavLink to='/dogs'>Dogs</NavLink></li>
-                    <li><NavLink to='/waterfalls'>Waterfalls</NavLink></li>
-                {/* </Switch> */}
-            </ul>
-        </nav>
 
-    );
+export default class Nav extends Component {
+    linkDefault = event => {
+        this.props.onClick(event.target.innerText);
+        this.props.isTrue(true);
+    }
+    render() {
+        return (
+            <nav className="main-nav" >
+                <ul>
+                    <li><NavLink to='/cupcakes' onClick={this.linkDefault}>Cupcakes</NavLink></li>
+                    <li><NavLink to='/dogs' onClick={this.linkDefault} >Dogs</NavLink></li>
+                    <li><NavLink to='/dancing' onClick={this.linkDefault}>Dancing</NavLink></li>
+                </ul>
+            </nav>
+        )
+    }
 }
-export default Nav;
