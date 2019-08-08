@@ -54,7 +54,7 @@ export default class App extends Component {
               ? <h3>Loading...</h3>
               :
               <Switch>
-
+                
               </Switch>
            }
             <PhotoContainer photos={this.state.photos} />
