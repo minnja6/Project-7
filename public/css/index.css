@@ -63,7 +63,7 @@ input {
 .search-form button:hover {
   background-color: #d6238c;
   color: black;
-  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .photo-container ul {

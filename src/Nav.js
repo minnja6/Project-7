@@ -11,8 +11,10 @@ export default class Nav extends Component {
             <nav className="main-nav" >
                 <ul>
                     <li><NavLink to='/cupcakes' onClick={this.linkDefault}>Cupcakes</NavLink></li>
-                    <li><NavLink to='/dogs' onClick={this.linkDefault} >Dogs</NavLink></li>
-                    <li><NavLink to='/dancing' onClick={this.linkDefault}>Dancing</NavLink></li>
+                    <li><NavLink to='/waterfalls' onClick={this.linkDefault} >Waterfalls</NavLink></li>
+                    <li><NavLink to='/flowers' onClick={this.linkDefault}>Flowers</NavLink></li>
+                    <li><NavLink to='/sunflowers' onClick={this.linkDefault}>Sunflowers</NavLink></li>
+
                 </ul>
             </nav>
         )

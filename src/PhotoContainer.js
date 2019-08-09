@@ -7,7 +7,6 @@ import Photo from './Photo';
 // const PhotoContainer = props => {
 //     const results = props.data;
 //     let photos;
-//     // console.log(props);
 //     if (results.length > 0) {
 //       photos = results.map(picture => <Photo url={`https://farm${picture.farm}.staticflickr.com/${picture.server}/${picture.id}_${picture.secret}.jpg`} title={props.title} key={picture.id}/>);
 //     } else {

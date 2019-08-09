@@ -46,7 +46,7 @@ export default class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <div className="main-container">
+          <div className="container">
             <Search onSearch={this.search} />
             <Nav isTrue={this.isTrue} onClick={this.search} />
             {
