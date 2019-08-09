@@ -2,45 +2,20 @@ import React from 'react';
 import NotFound from './NotFound';
 import Photo from './Photo';
 
-
-
-// const PhotoContainer = props => {
-//     const results = props.data;
-//     let photos;
-//     if (results.length > 0) {
-//       photos = results.map(picture => <Photo url={`https://farm${picture.farm}.staticflickr.com/${picture.server}/${picture.id}_${picture.secret}.jpg`} title={props.title} key={picture.id}/>);
-//     } else {
-//       photos = <NotFound />
-//     }
-  
-//     return (
-//       <div className="photo-container" >
-//         <h2>{props.title}</h2>
-//         <ul>
-//           {photos}
-//         </ul>
-//       </div>
-//     );
-//   }
-
- 
-class PhotoContainer extends React.Component {
-    constructor(props) {
-        super(props)
+const PhotoContainer = props => {
+    const results = props.photos;
+    let photos;
+    if (results.length > 0) {
+        photos = results.map(photo => <Photo key={photo.id} url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} alt="" />)
+    } else {
+        photos = <NotFound />
     }
-    render() {
-        return (
-            <div className="photo-container">
-                <h2>Results</h2>
-                <ul>
-                    {this.props.photos.map(photo =>
-                        <li key={photo.id}>
-                            <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} alt="" />
-                        </li>
-                    )}
-                </ul>
-            </div>
-        );
-    }
+    return (
+        <div className="photo-container">
+            {/* <h2>{props.match.params.query}</h2> */}
+            <ul>{photos}</ul>
+        </div>
+    );
 }
+
 export default PhotoContainer;

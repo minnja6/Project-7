@@ -5,6 +5,7 @@ import Nav from './Nav';
 import Search from './Search';
 import axios from 'axios';
 import apikey from './config.js';
+import Error from './Error';
 import {
   BrowserRouter,
   Switch,
@@ -21,7 +22,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    this.search('cake');
+    this.search('butterflies');
   }
 
   isTrue = (isTrue = true) => {
@@ -54,10 +55,15 @@ export default class App extends Component {
               ? <h3>Loading...</h3>
               :
               <Switch>
-                
-              </Switch>
+                  {/* <Route exact path="/" render={props => <PhotoContainer title="PhotoContainer" data={this.state.photos}{...props} />} /> */}
+                  <Route exact path="/:query" render={props => <PhotoContainer search={this.performSearch} photos={this.state.photos}{...props} />} />
+                  <Route exact path="/Cupcakes" render={props => <PhotoContainer title='PhotoContainer' photos={this.state.photos}{...props} />} />
+                  <Route exact path="/Waterfalls" render={props => <PhotoContainer title='PhotoContainer' photos={this.state.photos}{...props} />} />
+                  <Route exact path="/Flowers" render={props => <PhotoContainer title='PhotoContainer' photos={this.state.photos}{...props} />} />
+                  <Route exact path="/Sunflowers" render={props => <PhotoContainer title='PhotoContainer' photos={this.state.photos}{...props} />} />
+                  <Route component={Error} />
+                </Switch>
            }
-            <PhotoContainer photos={this.state.photos} />
           </div>
         </div>
       </BrowserRouter>
