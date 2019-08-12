@@ -10,17 +10,11 @@ class Search extends Component {
         this.setState({ searchText: e.target.value });
     }
 
-    // handleSubmit = e => {
-    //     e.preventDefault();
-    //     this.props.onSearch(this.state.searchText);
-    //     e.currentTarget.reset();
-    // }
-    handleSubmit = e => {           // called when the form is submitted
-        e.preventDefault();
-        this.props.onSearch(this.state.searchText);  // invoke the performsearch function that fetches my data
+    handleSubmit = e => {          
+        this.props.onSearch(this.state.searchText);  
         let query = this.state.searchText;
 
-            let path = `${query}`;
+            let path = `/search/${query}`;
             this.props.history.push(path);
             this.props.onSearch(this.state.searchText, true);
        
@@ -32,7 +26,6 @@ class Search extends Component {
     render() {
         return (
             <form className="search-form" onSubmit={this.handleSubmit}>
-                {/* <label className="is-hidden" htmlFor="search">Search</label> */}
                 <input type="search"
                     onChange={this.onSearchChange}
                     name="searchText"

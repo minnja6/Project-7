@@ -1,7 +1,8 @@
 body {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
-  color: #3f4850;
+  color: #d6238c;
+  background: #000;
 }
 
 h2 {
@@ -88,7 +89,7 @@ input {
 }
 
 .photo-container li:hover img {
-  transform: scale(1.65);
+  transform: scale(1.50);
 }
 
 .photo-container .not-found {

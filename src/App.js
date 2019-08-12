@@ -22,7 +22,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    this.search('butterflies');
+    this.search('tropical fish');
   }
 
   isTrue = (isTrue = true) => {
@@ -35,7 +35,7 @@ export default class App extends Component {
       .then(response => {
         this.setState({
           photos: response.data.photos.photo,
-          loading: isTrue
+          loading: false
         });
       })
       .catch(error => {
@@ -55,12 +55,8 @@ export default class App extends Component {
               ? <h3>Loading...</h3>
               :
               <Switch>
-                  {/* <Route exact path="/" render={props => <PhotoContainer title="PhotoContainer" data={this.state.photos}{...props} />} /> */}
-                  <Route exact path="/:query" render={props => <PhotoContainer search={this.performSearch} photos={this.state.photos}{...props} />} />
-                  <Route exact path="/Cupcakes" render={props => <PhotoContainer title='PhotoContainer' photos={this.state.photos}{...props} />} />
-                  <Route exact path="/Waterfalls" render={props => <PhotoContainer title='PhotoContainer' photos={this.state.photos}{...props} />} />
-                  <Route exact path="/Flowers" render={props => <PhotoContainer title='PhotoContainer' photos={this.state.photos}{...props} />} />
-                  <Route exact path="/Sunflowers" render={props => <PhotoContainer title='PhotoContainer' photos={this.state.photos}{...props} />} />
+                  <Route exact path="/" render={(props) => <PhotoContainer title="PhotoContainer" data={this.state.photos}{...props} />} />
+                  <Route exact path="/search/:query" render={props => <PhotoContainer search={this.search} photos={this.state.photos}{...props} />} />
                   <Route component={Error} />
                 </Switch>
            }
