@@ -4,7 +4,6 @@ body {
   color: #d6238c;
   background: #000;
 }
-
 h2 {
   font-size: 2em;
   margin: 52px 0 40px;
@@ -80,6 +79,8 @@ input {
   height: 165px;
   overflow: hidden;
   margin-bottom: 15px;
+  border: solid 2px #d7dbdf;
+  border-radius: 5px;
 }
 
 .photo-container ul img {
