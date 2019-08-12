@@ -17,20 +17,27 @@ export default class App extends Component {
     super();
     this.state = {
       photos: [],
+      prevSearch: '',
       loading: true
     };
   }
 
   componentDidMount() {
-    this.search('tropical fish');
+    this.search('tropical birds');
   }
 
   isTrue = (isTrue = true) => {
     this.setState({
-      loading: isTrue
+      loading: true
     });
   }
-  search = (searchResults, isTrue = false) => {
+  search = (searchResults, isTrue = false) => { 
+    if(searchResults !== this.state.prevSearch){
+      this.setState({
+        prevSearch: searchResults,
+        loading: true
+      })
+    }
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apikey}&tags=${searchResults}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
@@ -52,14 +59,14 @@ export default class App extends Component {
             <Nav isTrue={this.isTrue} onClick={this.search} />
             {
               (this.state.loading)
-              ? <h3>Loading...</h3>
-              :
-              <Switch>
+                ? <h3>Loading...</h3>
+                :
+                <Switch>
                   <Route exact path="/" render={(props) => <PhotoContainer title="PhotoContainer" data={this.state.photos}{...props} />} />
-                  <Route exact path="/search/:query" render={props => <PhotoContainer search={this.search} photos={this.state.photos}{...props} />} />
+                  <Route exact path="/search/:query" render={(props) => <PhotoContainer search={this.search} photos={this.state.photos}{...props} />} />
                   <Route component={Error} />
                 </Switch>
-           }
+            }
           </div>
         </div>
       </BrowserRouter>

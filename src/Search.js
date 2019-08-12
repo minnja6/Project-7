@@ -10,10 +10,10 @@ class Search extends Component {
         this.setState({ searchText: e.target.value });
     }
 
-    handleSubmit = e => {          
+    handleSubmit = e => {  
+        e.preventDefault();        
         this.props.onSearch(this.state.searchText);  
         let query = this.state.searchText;
-
             let path = `/search/${query}`;
             this.props.history.push(path);
             this.props.onSearch(this.state.searchText, true);
