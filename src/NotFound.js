@@ -1,4 +1,6 @@
+//importing react
 import React from 'react';
+//creating a NotFound Component to hold the information that will show when the results for an input come back as 0
 const NotFound = (props) => {
     return (
         <li className="not-found">
@@ -7,4 +9,5 @@ const NotFound = (props) => {
         </li>
     );
 }
+//exporting component
 export default NotFound;

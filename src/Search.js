@@ -1,28 +1,29 @@
+//import react component and react, also the router
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
-
+//clearing the search field after a search
 class Search extends Component {
     state = {
         searchText: ''
     }
-
+    //executing the search
     onSearchChange = e => {
         this.setState({ searchText: e.target.value });
     }
-
-    handleSubmit = e => {  
-        e.preventDefault();        
-        this.props.onSearch(this.state.searchText);  
+    //handling the submition of the search input
+    handleSubmit = e => {
+        e.preventDefault();
+        this.props.onSearch(this.state.searchText);
         let query = this.state.searchText;
-            let path = `/search/${query}`;
-            this.props.history.push(path);
-            this.props.onSearch(this.state.searchText, true);
-       
-    
+        let path = `/search/${query}`;
+        this.props.history.push(path);
+        this.props.onSearch(this.state.searchText, true);
+
+        //clearing the search field again 
         e.currentTarget.reset();
     }
 
-
+    //format and handling of the search box/button
     render() {
         return (
             <form className="search-form" onSubmit={this.handleSubmit}>
@@ -41,4 +42,5 @@ class Search extends Component {
         )
     };
 }
+//exporting component
 export default withRouter(Search);
